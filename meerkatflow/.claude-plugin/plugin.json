@@ -1,0 +1,8 @@
+{
+  "name": "meerkatflow",
+  "version": "1.0.0",
+  "description": "Dev flow: brainstorm, spec, plan, execute, review, debug, verify, verify-runtime, measure, issue, pr, resume. Small-code-first rules, short replies. Commits only per the mode the user picks.",
+  "author": {
+    "name": "ShineJaRam"
+  }
+}

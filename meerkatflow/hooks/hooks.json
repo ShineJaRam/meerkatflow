@@ -1,0 +1,27 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"process.stdout.write(require('fs').readFileSync(process.argv[1]))\" \"${CLAUDE_PLUGIN_ROOT}/hooks/session-rules.md\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node -e \"console.log('MEERKATFLOW: small code first. Evidence before claims. Terse: answer first, short. No commit unless asked.')\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ]
+  }
+}

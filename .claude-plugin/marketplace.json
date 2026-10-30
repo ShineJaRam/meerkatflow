@@ -1,0 +1,14 @@
+{
+  "name": "dev_meerkat",
+  "description": "Workflow plugin for Claude Code: a gated spec → plan → execute → verify flow with small-code-first and short-reply rules",
+  "owner": {
+    "name": "ShineJaRam"
+  },
+  "plugins": [
+    {
+      "name": "meerkatflow",
+      "description": "Dev flow (brainstorm→spec→plan→execute→verify code→verify runtime, review, debug, measure, issue, pr, resume) with lazy-ladder and terse-reply rules",
+      "source": "./meerkatflow"
+    }
+  ]
+}
