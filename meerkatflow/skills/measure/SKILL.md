@@ -50,7 +50,7 @@ Use the browser automation tool this session has: a browser extension's MCP tool
 ## 3. Reading state
 
 - Request/response bodies: wrap `window.fetch` (and the HTTP client the app uses) once, guarded so a second install is a no-op, and store the calls you need on `window.__x`. Return only the needed fields.
-- Component state: from one element inside the target, walk the framework's parent links upward (e.g. Vue `__vueParentComponent`, React fiber). Never scan `document.querySelectorAll('*')` on big pages.
+- Component state: from one element inside the target, walk the framework's parent links upward (e.g. React fiber `__reactFiber$…` → `.return`). Never scan `document.querySelectorAll('*')` on big pages.
 
 ## 4. When an observation looks wrong
 

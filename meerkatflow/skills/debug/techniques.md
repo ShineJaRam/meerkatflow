@@ -24,7 +24,7 @@ Mostly timing. Never add a guessed `setTimeout`.
   - Order dependence: repeat the action fast (tab switching, filter spamming, acting right after reload/restart).
   - Leftover state: fresh process/tab vs a long-running one, right after login vs later.
 - **When fixing, wait for the condition, not for time:**
-  - Work after a render/update → the framework's post-update hook (e.g. Vue `nextTick`, React effect)
+  - Work after a render/update → the framework's post-update hook (e.g. React `useEffect`)
   - Stale late response overwrites newer result → compare a request id, or cancel the older request (`AbortController`)
   - Two writers race → a constraint, lock or idempotency key at the storage layer, not check-then-write in code
   - Run once a value is ready → subscribe to it with a readiness check, not a delay
