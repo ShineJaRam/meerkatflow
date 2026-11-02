@@ -18,6 +18,8 @@ Turn the intent and approach agreed in `meerkatflow:brainstorm` into a design th
 
 When unsure, pick the heavier path. If hidden complexity appears mid-work, stop and escalate one level. Never downgrade on your own; the user may.
 
+TDD value: read `meerkatflow TDD: on|off` from `CLAUDE.md` and from session rules the user or another plugin added; a project `CLAUDE.md` beats the global one. No line means on, unless a user rule forbids adding test files; then off. When on, a bounded design also lists its scenarios (`S1: who → does what → what happens`) and tests, and the tests are written and seen failing before the code. If the project has no test runner, ask whether to add one, and never install one on your own; if not added, list runtime checks instead. When off, nothing in this skill about scenarios applies.
+
 ## 2. Remaining decisions
 
 Intent, goals and the chosen approach come from the brainstorm summary; do not ask them again. What is left are implementation choices the user should still make.
@@ -62,6 +64,8 @@ Required sections. Write headings and body in the document's language, but keep 
 ## Approaches
 - <chosen approach> — chosen because …; <rejected approach> — rejected because …
 ## Design
+## Scenarios
+- S1: <who → does what → what happens> (TDD on only; numbers kept from brainstorm)
 ## User decisions
 - D1: <decision> — <rationale>
 ## Open questions
@@ -70,6 +74,7 @@ Required sections. Write headings and body in the document's language, but keep 
 ```
 
 - Acceptance criteria must be gradable. No "works well". State the action and the observable result.
+- With TDD on, each scenario with behavior has at least one AC, and each such AC names its `S#`.
 - "User decisions" holds only what the user chose. Defaults you filled go to "Open questions" or get explicit confirmation.
 
 ## 5. Self-check, doc review, then user review

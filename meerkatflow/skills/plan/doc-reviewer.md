@@ -30,6 +30,7 @@ Agent (general-purpose)
     - Places a task cannot be implemented from its own text (needs another task's body)
     - Missing or unrunnable verification commands (e.g. uses a tool the project forbids or does not have)
     - Steps conflicting with Global Constraints
+    - With `TDD: on` in Global Constraints: missing Test map, scenarios with no row, `code` or `runtime` rows with no reason. With `TDD: off`, none of this applies
 
     Do not flag taste or style. Only risks that make an implementer build it wrong.
     Do not propose widening scope. Something outside the document's scope that looks wrong is [Minor], never [Blocking].

@@ -46,6 +46,8 @@ Pick the next suffix from existing files + state. Never overwrite feedback/summa
 4. Verify claims against actual code, not the criteria doc.
 5. Hunt regressions, missing edge cases, integration mismatches, type errors, state bugs, stale assumptions. An edge case counts only when the state actually occurs (spec decisions, measurements in the project's docs, real data); type declarations alone do not settle it either way. Exception: input validation at trust boundaries, security and data-loss handling count whether or not the state has been seen.
 6. Honor constraints passed by the caller (e.g. no deduction for missing tests when the constraints forbid adding test files).
+
+   With `TDD: on` in the criteria file's Global Constraints, deduct for: a Test map row with no matching test or Runtime checklist line; a `scenario` or `code` row with no failing output in the implementer reports or ledger; a test connected to no scenario; a `code` row with no reason. A `runtime` row needs no test and no failing output, only its Runtime checklist line, even when every row is `runtime`. A row whose report says the behavior already exists and quotes the passing run needs no failing output. With `TDD: off` or no such line, none of this applies.
 7. Mark criteria you cannot judge here as **pending**: not measurable in this environment (no access, no data), or waiting on a user decision. Give the reason and what is needed. "Did not try" is not a reason. Pending criteria are not deducted; tell the user about each one. A criterion the user drops is written into the criteria file as a user decision before the next pass.
 8. Score out of 100 on what code and measurements can decide. Write feedback with `file:line` references.
 

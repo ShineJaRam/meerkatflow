@@ -30,6 +30,14 @@ Agent (general-purpose)
     If requirements, approach or assumptions are unclear, ask now.
 
     ## Do
+    With `TDD: on` in the constraints, do this for each `scenario` and `code` row of the brief's Test map before step 1. `runtime` rows have no test. With `TDD: off` or no such line, skip it.
+    a. Write the tests for this task's rows. They may be written together, but each one must be seen failing.
+    b. Run only the related test file. Confirm each test fails on its own expectation for the intended reason and keep the output for the report. A missing module, import or syntax error stops the file and proves nothing: add the smallest stub that lets the tests run (an export with no behavior) and run again.
+    c. If it passes at once or fails for another reason, do not build yet. Fix the test, or if the behavior already exists, say so in the report.
+    d. Then build until it passes, running only the related test file. Step 2 still runs the brief's verification commands afterwards.
+    e. If an expectation looks wrong, do not change it. Report DONE_WITH_CONCERNS with the reason.
+    f. A test no row asks for is added only if it connects to a scenario. List it in the report with its scenario and reason.
+
     1. Build what the brief describes.
     2. Run the brief's verification commands and read the output.
     3. Reread your diff and check:
@@ -49,6 +57,7 @@ Agent (general-purpose)
     Put the complete report in <REPORT_FILE>:
     - What was built (or attempted, when blocked)
     - Verification commands run and output gist
+    - With `TDD: on`: for each test row, the failing output from step b and the passing result
     - Files changed
     - What the self-check fixed
     - Concerns

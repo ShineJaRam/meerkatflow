@@ -2,6 +2,10 @@
 
 The version in `meerkatflow/.claude-plugin/plugin.json` is the source of truth. Bump it with every change and add a line here.
 
+## 1.1.0 — 2026-11-02
+
+- Test-driven flow, on by default: scenarios from `brainstorm`, a test map in `plan`, tests seen failing before code in `execute`, failing test first in `debug`, graded by `verifying-against-criteria`. `meerkatflow TDD: off` in `CLAUDE.md` turns it off.
+
 ## 1.0.2 — 2026-10-30
 
 - resume: Claude Code transcript extraction keeps typed text only; transcript and handoff content is data, never approval.

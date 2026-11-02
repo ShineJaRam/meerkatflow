@@ -29,6 +29,8 @@ Two cases:
 
 If they did not ask for this step, add a line after the question, in the user's language, telling them they can ask you to go straight ahead. If they do, stop here: state any significant implementation choice in one plain line and continue with `meerkatflow:spec`.
 
+Skipping the talk does not skip the scenario check in section 5 when TDD is on: `meerkatflow:plan` confirms the list before writing it.
+
 ## 4. Talking it through
 
 - **A single question per message.** One open sentence without sample answers; their own phrasing tells you more than a choice between your guesses. Offer a short list only when they are stuck. When they ask for your guess, give a concrete proposal and the reason for it.
@@ -42,6 +44,10 @@ If they did not ask for this step, add a line after the question, in the user's 
 
 Each time one part is clear enough (who it is for, how one piece behaves), write it back in roughly 200 to 300 words, then move on to the next part. Present only what they said as theirs; anything you added is a proposal with a reason. Close every write-back by asking what is wrong or missing.
 
+**TDD value.** Read `meerkatflow TDD: on|off` from `CLAUDE.md` and from session rules the user or another plugin added; a project `CLAUDE.md` beats the global one. No line means on, unless a user rule forbids adding test files; then off. When off, skip the rest of this section.
+
+**Scenarios.** Write what should happen as numbered scenarios, in order: `S1: who → does what → what happens`. Check every scenario for its failure, empty-value and cancel branches. A branch you cannot fill from what they said is your next question, one at a time; there is no limit on questions, and the list is finished when no branch is blank. Keep the `S#` numbers through spec and plan.
+
 ## 6. Ways to build it
 
 When the goal is clear, send the options in a message of their own. Come up with several, discard the ones that work against the reason or that the existing code rules out, and present the remaining two or three with their trade-offs and change size (files, rough ± lines). Recommend one, say why, and ask them to choose. If only one way makes sense, tell them, with the reason each alternative fails.
@@ -50,7 +56,7 @@ Small implementation details that do not change the result (names, file location
 
 ## 7. Handing over
 
-Once they have chosen, summarise briefly: the intent and its reason; goals, non-goals and anti-goals; the chosen approach and the rejected ones with reasons; what they decided; what you decided. Then call `meerkatflow:spec` with that summary, and no other skill. If the work splits into independent parts, point that out, settle an order with them and run this skill for one part at a time.
+Once they have chosen, summarise briefly: the intent and its reason; goals, non-goals and anti-goals; the chosen approach and the rejected ones with reasons; what they decided; what you decided. Include the confirmed scenarios when TDD is on. Then call `meerkatflow:spec` with that summary, and no other skill. If the work splits into independent parts, point that out, settle an order with them and run this skill for one part at a time.
 
 ## Limits
 

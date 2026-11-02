@@ -41,6 +41,7 @@ MEERKATFLOW RULES ACTIVE. They hold for every reply in this session until the us
 - Documents someone other than the user will read (report, issue, PR) state nothing unconfirmed as fact; unconfirmed items go under a "to confirm" heading.
 - `<docs>`: the gitignored directory for agent documents. Use the one the project's rules name (CLAUDE.md, session rules); default `.meerkatflow/`. If git does not ignore it, add it to `$(git rev-parse --git-path info/exclude)`. Never commit it.
 - Project and user rules (CLAUDE.md, other session rules) override meerkatflow defaults. The ones implementers must obey go into the plan's Global Constraints.
+- TDD: on by default for new features, behavior changes and bug fixes, not for one- or two-file edits the user spelled out. `meerkatflow TDD: off` in `CLAUDE.md` turns it off. Tests come from user scenarios and are seen failing before the code is written.
 
 ## Skills (meerkatflow)
 - A one- or two-file edit the user spelled out → edit directly, no skill

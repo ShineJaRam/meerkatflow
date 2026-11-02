@@ -30,7 +30,7 @@ description: Use for any bug, error, failing type check or build, or behavior th
 
 ## Phase 4: Fix
 
-1. Secure a repro procedure (failing test, typecheck command, browser steps, console snippet, request script).
+1. Secure a repro procedure (failing test, typecheck command, browser steps, console snippet, request script). When TDD is on, prefer a failing test, seen failing before the fix; if it cannot be automated, say why and use another procedure. TDD value: read `meerkatflow TDD: on|off` from `CLAUDE.md` and from session rules the user or another plugin added; a project `CLAUDE.md` beats the global one. No line means on, unless a user rule forbids adding test files; then off. When off, use any procedure above.
 2. One fix for the cause. No "while I'm here" improvements. When several candidate causes show up, fix only the one shown to produce the reported symptom; the rest stay listed as unconfirmed until evidence shows they matter.
 3. Confirm with the same repro.
 4. Report before → after in the session rules' change-explanation shape (old flow → what went wrong → new flow), then the evidence.

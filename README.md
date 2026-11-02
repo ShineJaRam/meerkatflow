@@ -60,6 +60,7 @@ meerkatflow assumes nothing about your project. Everything below is a default; y
 | Commit mode in `execute` | Asked once per run; a rule in `CLAUDE.md` can fix it. No answer → at the end, by you |
 | Commit and PR format | The repository's recent history and PR template |
 | Comment and test-file policy | None. Rules you have are passed to implementers through the plan's Global Constraints |
+| Test-driven flow | On for new features, behavior changes and bug fixes. `meerkatflow TDD: off` in `~/.claude/CLAUDE.md` turns it off everywhere, in a project's `CLAUDE.md` for that project; the project line wins. A rule of yours that forbids test files also turns it off |
 
 To override, put the rule in your `CLAUDE.md`, or ship a small plugin of your own with a session-start hook (and, for browser setups, a `measure` skill with your tool notes).
 

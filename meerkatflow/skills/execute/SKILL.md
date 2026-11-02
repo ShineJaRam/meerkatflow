@@ -50,6 +50,7 @@ A temp index captures the whole working tree (untracked files included, gitignor
 ### 2. Dispatch implementer
 
 - Extract Task N's body from the plan into `$D/task-N-brief.md`. Implementers never read the whole plan.
+- With `TDD: on` in Global Constraints, add this task's Test map rows to the brief. With `TDD: off` or no such line, there is no test-first step.
 - Dispatch content: one line on where this task sits, brief path, interfaces/Rulings fixed by earlier tasks, ambiguities you resolved, report path `$D/task-N-report.md`, Global Constraints.
 - Template: [implementer.md](implementer.md)
 - Do not accumulate earlier task summaries. Only what is needed.
@@ -83,6 +84,8 @@ GIT_INDEX_FILE="$I" git add -A 2>/dev/null; N=$(GIT_INDEX_FILE="$I" git write-tr
 Tree-to-tree diff: catches later edits to files an earlier task created, and excludes uncommitted changes that predate the work.
 
 Check it yourself, briefly: the files in `--stat` match the brief's Files list, nothing outside it changed, and the report quotes the verification output. A gap goes to the fix loop. Do not review line by line; the final review does that.
+
+With `TDD: on`, also check that the report quotes a failing run for each `scenario` and `code` row, from before the code was written, with a failure that matches the intent. A missing or unrelated failure goes to the fix loop. A row whose report says the behavior already exists and quotes the passing run is accepted; nothing is built for it. Tests added during implementation need a new Test map row, which the implementer lists in the report and you add to the plan's Test map; this is the one plan edit the controller makes.
 
 **Task review is off by default.** Dispatch a task reviewer ([reviewer.md](reviewer.md): brief, report, diff path, Global Constraints) only when:
 - the user asked for per-task review, or the plan marks the task `Review: required`
@@ -165,3 +168,5 @@ Log the commit hash next to the complete line. Fix rounds after the task loop (f
 ## Inline mode
 
 Use when the user asks for inline execution, the plan has 1–2 tasks, or there is no subagent tool. Same order, you implement. Per task: snapshot → implement → check verification output → ledger. Always do Finish steps 1–7. Final review: dispatch the reviewer as usual. You wrote the code, so your own read is not the review. Only with no subagent tool, read `final-diff.md` yourself against [final-reviewer.md](final-reviewer.md) and say in the report that it was a self-review.
+
+With `TDD: on`, follow the test-first order in [implementer.md](implementer.md) for each Test map row, and keep the failing output in the ledger.
